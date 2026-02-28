@@ -4,7 +4,7 @@ import { Product } from "@/types/product"
 export class ProductsService extends ServiceBase {
 
   static async getProducts(): Promise<Product[]> {
-    const response = await fetch("/api/products")
+    const response = await fetch("https://fakestoreapi.com/products")
     return this.handleResponse<Product[]>(response)
   }
 
@@ -13,7 +13,7 @@ export class ProductsService extends ServiceBase {
       throw new Error("Invalid product ID")
     }
 
-    const response = await fetch(`/api/products?id=${id}`)
+    const response = await fetch(`https://fakestoreapi.com/products/${id}`)
     return this.handleResponse<Product>(response)
   }
 }
